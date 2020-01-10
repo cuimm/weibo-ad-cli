@@ -12,7 +12,9 @@
     > 交互式命令行用户界面集合
     * download-git-repo
     > git仓库下载
-    
+    * ncp
+    > 文件拷贝 ncp 
+    > ncp [source] [dest] [--limit=concurrency limit] [--filter=filter] --stopOnErr
 
 
 

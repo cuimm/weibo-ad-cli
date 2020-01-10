@@ -12,6 +12,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "gitHooks": {
+    "pre-commit": "cross-env PRE_COMMIT=true lint-staged"
+  },
   "dependencies": {
     "axios": "^0.19.1",
     "commander": "^4.1.0",

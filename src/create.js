@@ -10,7 +10,6 @@ downLoadGitRepo = promisify(downLoadGitRepo)
 // 选择模板仓库
 const handleRepos = async () => {
   const repos = await waitFnLoading(fetchRepoList, 'fetching template...')()
-  console.log(repos);
   const { repo } = await inquirer.prompt({
     name: 'repo',
     type: 'list',
@@ -32,9 +31,18 @@ const handleTags = async (repo) => {
   return tag
 }
 
+// 下载模板
+const downloadRepo = async (repo, tag) => {
+  let api = `cuimm/${repo}`
+  tag && (api += `#${tag}`)
+  const dest = `${defaultDownloadDirectory}/${repo}`
+  await downLoadGitRepo(api, dest)
+  return dest
+}
+
 module.exports = async (projectName) => {
   const repo = await handleRepos()
   const tag = await handleTags(repo)
-
-  console.log(repo, tag, defaultDownloadDirectory);
+  const target = await waitFnLoading(downloadRepo, 'download template...')(repo, tag)
+  console.log(target, projectName);
 }

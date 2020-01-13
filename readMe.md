@@ -18,6 +18,19 @@
 
 
 
+* node
+> process.stdout.isTTY：判断是否是文本终端
+> process.stdout.rows：当前 TTY 的行数
+> readline.cursorTo(stream, x, y)：移动光标到给定的 TTY stream 中指定的位置
+> readline.clearScreenDown(stream)：从光标的当前位置向下清除给定的 TTY 流
+
+
+
+
+
+
+
+
 ```https://api.github.com/users/cuimm/repos
 [
     {

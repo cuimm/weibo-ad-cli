@@ -2,6 +2,9 @@ const path = require('path')
 const program = require('commander')
 const { version } = require('./constants')
 const actionsMap = require('./config/actions')
+const { clearConsole } = require('./util/logger')
+
+clearConsole()
 
 // 注册命令
 Reflect.ownKeys(actionsMap).forEach(action => {
